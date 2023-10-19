@@ -1,0 +1,92 @@
+﻿body {
+
+}
+
+.formLogin {
+    background-color: #9AC7E7;
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.formLogin h2 {
+    color: #47525E;
+    font-size: 50px;
+}
+
+.formLogin h3{
+    color: #4379C8;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.containerForm {
+    background-color: #B6CEDF;
+    padding: 70px;
+    border-radius: 10%;
+    margin-top: -50px;
+    margin-block-end: 20px;
+}
+
+#logo {
+    width: 30%;
+    border-radius: 10%;
+    margin-top: 30px;
+
+}
+
+.formLogin input {
+    /*width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+    border: 1;
+    background-color: #B6CEDF;
+    border-color: aliceblue;
+    border-radius: 2%;*/
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.formLogin button {
+    padding: 0.8em 1em;
+    border-color: #68AAD8;
+    background: #88B8DA;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 15px;
+    margin-block-end: 30px;
+    box-sizing: border-box;
+}
+
+.formLogin button:hover {
+    background-color: #68AAD8;
+}
+
+.formLogin a {
+    color: #8190A5;
+}
+
+.formLogin a:hover{
+    color: black;
+}
+
+.textdanger {
+    color: red;
+}
+
+
+
