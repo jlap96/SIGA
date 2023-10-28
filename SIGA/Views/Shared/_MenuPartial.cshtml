@@ -1,4 +1,149 @@
-﻿
-@{
-    <h2>Menú principal </h2>
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SIGA</title>
+    <link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="cont">
+        <div class="menu-content">
+            <div class="logo-button">
+                <img src="~/img/logo.png" id="logo" />
+                <button>Cerrar sesión</button>
+            </div>
+
+
+            <nav class="main-nav">
+                <ul class="menu"> 
+                    <li>
+                        <a class="menu-link" asp-controller="Home" asp-action="Index">
+                            <span class="material-symbols-outlined">
+                                home_work
+                            </span>Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link">
+                            <span class="material-symbols-outlined">
+                                badge
+                            </span>Usuarios<span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a>Colaborador</a></li>
+                            <li><a>Alumno</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="menu-link">
+                            <span class="material-symbols-outlined">
+                                school
+                            </span>Administración<span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a>Grupos</a></li>
+                            <li><a>Materias</a></li>
+                            <li><a>Talleres</a></li>
+                            <li>
+                                <a>
+                                    Asignación de grupo<span class="material-symbols-outlined">
+                                        arrow_drop_down
+                                    </span>
+                                </a>
+                                <ul class="subsubmenu">
+                                    <li><a>Alumno</a></li>
+                                    <li><a>Docente</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    Asignación de materias<span class="material-symbols-outlined">
+                                        arrow_drop_down
+                                    </span>
+                                </a>
+                                <ul class="subsubmenu">
+                                    <li><a>Alumno</a></li>
+                                    <li><a>Docente</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>
+                                    Asignación de talleres<span class="material-symbols-outlined">
+                                        arrow_drop_down
+                                    </span>
+                                </a>
+                                <ul class="subsubmenu">
+                                    <li><a>Alumno</a></li>
+                                    <li><a>Docente</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="menu-link">
+                            <span class="material-symbols-outlined">
+                                calculate
+                            </span>Control Financiero<span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a>Becas</a></li>
+                            <li><a>Cobros extra</a></li>
+                            <li><a>Inscripciones</a></li>
+                            <li><a>Colegiaturas</a></li>
+                            <li><a>Talleres</a></li>
+                            <li><a>Descuentos adicionales</a></li>
+                            <li><a>Horarios extendidos</a></li>
+                            <li><a>Recargos</a></li>
+                            <li><a>Administrar becas</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="menu-link">
+                            <span class="material-symbols-outlined">
+                                payments
+                            </span>Pagos<span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a>Registrar pago</a></li>
+                            <li><a>Administrar pagos</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="menu-link">
+                            <span class="material-symbols-outlined">
+                                school
+                            </span>Alumnos<span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a>Registrar reporte</a></li>
+                            <li><a>Administrar reportes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="schoolName">
+            <h3>Centro de Desarrollo Integral Gardner</h3>
+        </div>
+    </div>
+   <div>
+        @RenderBody()
+   </div> 
+</body>
+</html>
+
+<script src="~/js/Menu.js"></script>

@@ -1,0 +1,128 @@
+﻿:root {
+    --Primary-color: #9AC7E7;
+}
+
+body {
+    background-color: #d8e9f6;
+}
+.menu-content {
+    display: flex;
+    width: 20%;
+    background-color: var(--Primary-color);
+    flex-direction: column;
+    border-radius: 1em;
+    padding-block-end: 10%;
+}
+
+.logo-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#logo {
+    width: 30%;
+    border-radius: 10%;
+    margin-top: 30px;
+}
+
+.logo-button button {
+    margin-top: 30px;
+    width: 50%;
+    height: 2em;
+    border-radius: 1px;
+    background-color: var(--Primary-color);
+    border-color: #47525E;
+    cursor: pointer;
+    border: none;
+    outline: 2px solid #707176;
+    outline-offset: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #707176;
+    transition: all 0.5s;
+}
+
+.logo-button button:hover{
+    background-color: #599fd1;
+    color: white;
+}
+.cont{
+    display: flex;
+}
+
+.schoolName {
+    background-color: var(--Primary-color);
+    height: 45px;
+    border-radius: 3em;
+    border: none;
+    outline: 3px solid #5C94B1;
+    width: 50%;
+    font-family: 'Palatino Linotype';
+    align-items: center;
+    margin-left: 15%;
+}
+
+.schoolName h3{
+    margin-top: 4px;
+    text-align: center;
+    color: #47525E;
+    font-size: 23px;
+}
+
+.main-nav {
+    margin-left: inherit;
+    margin-top: 30px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.menu, .submenu, .subsubmenu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: all 15s;
+}
+
+.menu-link, .submenu a {
+    display: block;
+    padding: 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+.submenu, .subsubmenu {
+    background-color: #d8e9f6;
+    border-radius: 1em;
+    border: none;
+    margin-left: 30px;
+    display: none;
+    margin-right: 10px;
+}
+
+.subsubmenu a{ 
+    padding: 15px;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding-left: 50px;
+}
+
+ul li:hover > ul {
+    
+}
+
+.main-nav span{
+    margin-right: 20px;
+}
+
+.main-nav span:hover{
+    color: #707176;
+}
+
+.menu-link:hover {
+    color: #707176;
+    font-weight: 700;
+}
+
+
+

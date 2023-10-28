@@ -26,7 +26,7 @@ namespace SIGA.Controllers
 
             if(us.email != null)
             {
-                return PartialView("_MenuPartial");
+                return View();
                 
             }
             else
