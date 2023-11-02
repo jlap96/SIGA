@@ -13,21 +13,22 @@
         <div class="menu-content">
             <div class="logo-button">
                 <img src="~/img/logo.png" id="logo" />
-                <button>Cerrar sesión</button>
+                <button onclick="location.href='@Url.Action("Login", "Users")'">Cerrar sesión</button>
             </div>
 
 
             <nav class="main-nav">
                 <ul class="menu"> 
-                    <li>
-                        <a class="menu-link" asp-controller="Home" asp-action="Index">
+                    <li class="menu-link">
+                        <a asp-controller="Home" asp-action="Index">
                             <span class="material-symbols-outlined">
                                 home_work
                             </span>Inicio
                         </a>
                     </li>
-                    <li>
-                        <a class="menu-link">
+
+                    <li class="menu-link">
+                        <a>
                             <span class="material-symbols-outlined">
                                 badge
                             </span>Usuarios<span class="material-symbols-outlined">
@@ -39,8 +40,8 @@
                             <li><a>Alumno</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="menu-link">
+                    <li class="menu-link">
+                        <a >
                             <span class="material-symbols-outlined">
                                 school
                             </span>Administración<span class="material-symbols-outlined">
@@ -86,8 +87,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="menu-link">
+                    <li class="menu-link">
+                        <a>
                             <span class="material-symbols-outlined">
                                 calculate
                             </span>Control Financiero<span class="material-symbols-outlined">
@@ -106,8 +107,8 @@
                             <li><a>Administrar becas</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="menu-link">
+                    <li class="menu-link">
+                        <a>
                             <span class="material-symbols-outlined">
                                 payments
                             </span>Pagos<span class="material-symbols-outlined">
@@ -119,8 +120,8 @@
                             <li><a>Administrar pagos</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="menu-link">
+                    <li class="menu-link">
+                        <a>
                             <span class="material-symbols-outlined">
                                 school
                             </span>Alumnos<span class="material-symbols-outlined">
@@ -145,5 +146,4 @@
    </div> 
 </body>
 </html>
-
-<script src="~/js/Menu.js"></script>
+<script src="~/js/Menu.js" asp-append-version="true"></script>

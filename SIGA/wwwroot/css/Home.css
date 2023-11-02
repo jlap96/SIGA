@@ -11,7 +11,6 @@
     border-radius: 1em;
     position: absolute;
     /*display:flex;*/
-    transform: translate(60%, -180%);
 }
 
 .welcome h4{
@@ -23,4 +22,10 @@
 
 .welcome h3{
     text-align: center;
+}
+
+.userName {
+    text-align: start !important;
+    margin-left: 40px;
+    margin-top: -59px !important;
 }

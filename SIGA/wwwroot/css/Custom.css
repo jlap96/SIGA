@@ -36,6 +36,10 @@ body {
     margin-block-end: 20px;
 }
 
+.validar {
+    color: red;
+}
+
 #logo {
     width: 30%;
     border-radius: 10%;

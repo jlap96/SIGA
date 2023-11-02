@@ -38,16 +38,19 @@ body {
     border: none;
     outline: 2px solid #707176;
     outline-offset: 3px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #707176;
+    font-size: 16px;
+    font-weight: 900;
+    color: #47525E;
     transition: all 0.5s;
+    font-family: 'Palatino Linotype';
 }
 
 .logo-button button:hover{
     background-color: #599fd1;
     color: white;
+    transition: all 0.5s;
 }
+
 .cont{
     display: flex;
 }
@@ -78,31 +81,43 @@ body {
     height: 100%;
 }
 
-.menu, .submenu, .subsubmenu{
+.menu, .submenu, .subsubmenu {
     list-style: none;
     padding: 0;
     margin: 0;
-    transition: all 15s;
+    transition: all 0.3s;
+    font-family: 'Palatino Linotype';
 }
 
-.menu-link, .submenu a {
+.menu-link, .submenu li {
     display: block;
-    padding: 20px;
-    font-size: 1.2em;
+    padding: 16px ;
     text-decoration: none;
+}
+
+.menu-link {
+    font-size: 1.2em
+}
+
+.submenu li{
+    font-size: 1em;
 }
 .submenu, .subsubmenu {
     background-color: #d8e9f6;
     border-radius: 1em;
     border: none;
     margin-left: 30px;
-    display: none;
-    margin-right: 10px;
+    display: block;
 }
 
-.subsubmenu a{ 
+.submenu li:hover {
+    background: #B6CEDF; 
+    border-radius: 1em;
+}
+
+.subsubmenu li{ 
     padding: 15px;
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
     padding-left: 50px;
 }
@@ -112,17 +127,24 @@ ul li:hover > ul {
 }
 
 .main-nav span{
-    margin-right: 20px;
+    margin-right: 15px;
+}
+
+.submenu li span{
+    margin-left: 2px !important;
 }
 
 .main-nav span:hover{
     color: #707176;
 }
 
-.menu-link:hover {
+.menu-link li:hover {
     color: #707176;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-
+.menu-link a:hover {
+    color: #707176;
+    font-weight: 600;
+}
 

@@ -1,6 +1,6 @@
-﻿
-const menu = document.getElementById("menu");
-const submenu = document.getElementById("submenu");
+﻿let listMenu = document.querySelectorAll(".menu-link");
+let listSubmenu = document.querySelectorAll(".submenu");
+let listSubsubmenu = document.querySelectorAll(".subsubmenu");
 
-menu.addEventListener("click", () =>
-    submenu.style.display = "block");
+console.log(listSubsubmenu)
+

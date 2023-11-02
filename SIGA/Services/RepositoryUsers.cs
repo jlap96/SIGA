@@ -2,7 +2,6 @@
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
-using Microsoft.AspNetCore.Rewrite;
 
 namespace SIGA.Services
 {
