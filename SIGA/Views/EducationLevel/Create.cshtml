@@ -1,0 +1,40 @@
+﻿@model EducationLevel
+
+@{
+    ViewData["Title"] = "Crear Nivel educativo";
+}
+
+<link rel="stylesheet" href="~/css/Forms.css" />
+<div class="form-cont">
+    <h1>CREAR NIVEL EDUCATIVO</h1>
+    <div asp-validation-summary="All"></div>
+
+    <form asp-action="Create" class="form">
+        <div>
+            <label asp-for="Nombre"></label>
+            <input type="text" asp-for="Nombre" />
+        </div>
+
+        <div>
+            <label asp-for="CostoInscripcion"></label>
+            <input type="text" asp-for="CostoInscripcion" />
+        </div>
+
+        <div>
+            <label asp-for="CostoColegiatura"></label>
+            <input type="text" asp-for="CostoColegiatura" />
+        </div>
+
+        <button type="submit" class="btn success">Guardar</button>
+        <button class="btn secondary">Cancelar</button>
+    </form>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#Nombre").blur(function () {
+            $(this).valid();
+        })
+    });
+</script>

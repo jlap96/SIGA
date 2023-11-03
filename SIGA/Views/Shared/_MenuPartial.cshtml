@@ -137,13 +137,15 @@
             </nav>
         </div>
 
-        <div class="schoolName">
-            <h3>Centro de Desarrollo Integral Gardner</h3>
+        <div class="containerMain">
+            <div class="schoolName">
+                <h3>Centro de Desarrollo Integral Gardner</h3>
+            </div>
+            <div class="dashboard">
+                @RenderBody()
+            </div>
         </div>
     </div>
-   <div>
-        @RenderBody()
-   </div> 
 </body>
 </html>
 <script src="~/js/Menu.js" asp-append-version="true"></script>

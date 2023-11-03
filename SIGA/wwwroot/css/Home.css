@@ -9,8 +9,7 @@
     font-size: 23px;
     color: #47525E;
     border-radius: 1em;
-    position: absolute;
-    /*display:flex;*/
+    align-self: center;
 }
 
 .welcome h4{

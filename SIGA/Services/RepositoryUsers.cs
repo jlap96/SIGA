@@ -52,7 +52,7 @@ namespace SIGA.Services
                     //Actualizamos las propiedades del objeto
                     us = new User()
                     {
-                        Id = (int)reader["idUsuarios"],
+                        Id = (int)reader["Id"],
                         email = reader["correo"].ToString(),
                         password = reader["contrasena"].ToString(),
                         IdRole = (Role)reader["NivelUsuario_Id"],

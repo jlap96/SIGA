@@ -1,5 +1,6 @@
 ﻿:root {
-    --Primary-color: #9AC7E7;
+    --Primary-color: #71B1D3;
+    --Second-color: #9AC7E7;
 }
 
 body {
@@ -8,10 +9,11 @@ body {
 .menu-content {
     display: flex;
     width: 20%;
-    background-color: var(--Primary-color);
+    background-color: #71B1D3;
     flex-direction: column;
     border-radius: 1em;
-    padding-block-end: 10%;
+    padding-block-end: 13%;
+    font-weight: 600;
 }
 
 .logo-button {
@@ -51,7 +53,7 @@ body {
     transition: all 0.5s;
 }
 
-.cont{
+.cont {
     display: flex;
 }
 
@@ -60,11 +62,26 @@ body {
     height: 45px;
     border-radius: 3em;
     border: none;
-    outline: 3px solid #5C94B1;
-    width: 50%;
+    outline: 3px solid #4290c8;
+    width: 80%;
     font-family: 'Palatino Linotype';
     align-items: center;
-    margin-left: 15%;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.containerMain {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .schoolName h3{
@@ -90,13 +107,13 @@ body {
 }
 
 .menu-link, .submenu li {
-    display: block;
     padding: 16px ;
     text-decoration: none;
 }
 
 .menu-link {
-    font-size: 1.2em
+    font-size: 1.2em;
+    display: block;
 }
 
 .submenu li{
@@ -107,7 +124,7 @@ body {
     border-radius: 1em;
     border: none;
     margin-left: 30px;
-    display: block;
+    display: none;
 }
 
 .submenu li:hover {
@@ -122,11 +139,13 @@ body {
     padding-left: 50px;
 }
 
-ul li:hover > ul {
-    
-}
-
-.main-nav span{
+.menu-link:checked + .submenu, .subsubmenu{
+    display: block;
+} 
+/*ul li:hover> ul {
+    display:block;
+}*/
+.main-nav span {
     margin-right: 15px;
 }
 
