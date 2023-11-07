@@ -27,7 +27,7 @@
                         </a>
                     </li>
 
-                    <li class="menu-link">
+                    <li class="menu-link" id="opcionUsuarios">
                         <a>
                             <span class="material-symbols-outlined">
                                 badge
@@ -35,12 +35,12 @@
                                 arrow_drop_down
                             </span>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu" id="submenuUsuarios">
                             <li><a>Colaborador</a></li>
                             <li><a>Alumno</a></li>
                         </ul>
                     </li>
-                    <li class="menu-link">
+                    <li class="menu-link" id="opcionAdministracion">
                         <a >
                             <span class="material-symbols-outlined">
                                 school
@@ -48,15 +48,13 @@
                                 arrow_drop_down
                             </span>
                         </a>
-                        <ul class="submenu">
-                            <li><a>Grupos</a></li>
-                            <li><a>Materias</a></li>
+                        <ul class="submenu" id="submenuAdministracion">
+                            <li><a asp-controller="Grupos" asp-action="Index">Grupos</a></li>
+                            <li><a asp-controller="Materias" asp-action="Index">Materias</a></li>
                             <li><a>Talleres</a></li>
                             <li>
                                 <a>
-                                    Asignación de grupo<span class="material-symbols-outlined">
-                                        arrow_drop_down
-                                    </span>
+                                    Asignación de grupo
                                 </a>
                                 <ul class="subsubmenu">
                                     <li><a>Alumno</a></li>
@@ -65,9 +63,7 @@
                             </li>
                             <li>
                                 <a>
-                                    Asignación de materias<span class="material-symbols-outlined">
-                                        arrow_drop_down
-                                    </span>
+                                    Asignación de materias
                                 </a>
                                 <ul class="subsubmenu">
                                     <li><a>Alumno</a></li>
@@ -76,9 +72,7 @@
                             </li>
                             <li>
                                 <a>
-                                    Asignación de talleres<span class="material-symbols-outlined">
-                                        arrow_drop_down
-                                    </span>
+                                    Asignación de talleres
                                 </a>
                                 <ul class="subsubmenu">
                                     <li><a>Alumno</a></li>
@@ -87,7 +81,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-link">
+                    <li class="menu-link" id="opcionFinanciero">
                         <a>
                             <span class="material-symbols-outlined">
                                 calculate
@@ -95,11 +89,10 @@
                                 arrow_drop_down
                             </span>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu" id="submenuFinanciero">
                             <li><a>Becas</a></li>
                             <li><a>Cobros extra</a></li>
-                            <li><a>Inscripciones</a></li>
-                            <li><a>Colegiaturas</a></li>
+                            <li><a asp-controller="EducationLevel" asp-action="Index">Inscripciones y colegiaturas</a></li>
                             <li><a>Talleres</a></li>
                             <li><a>Descuentos adicionales</a></li>
                             <li><a>Horarios extendidos</a></li>
@@ -107,7 +100,7 @@
                             <li><a>Administrar becas</a></li>
                         </ul>
                     </li>
-                    <li class="menu-link">
+                    <li class="menu-link" id="opcionPagos">
                         <a>
                             <span class="material-symbols-outlined">
                                 payments
@@ -115,12 +108,12 @@
                                 arrow_drop_down
                             </span>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu" id="submenuPagos">
                             <li><a>Registrar pago</a></li>
                             <li><a>Administrar pagos</a></li>
                         </ul>
                     </li>
-                    <li class="menu-link">
+                    <li class="menu-link" id="opcionAlumnos">
                         <a>
                             <span class="material-symbols-outlined">
                                 school
@@ -128,7 +121,7 @@
                                 arrow_drop_down
                             </span>
                         </a>
-                        <ul class="submenu">
+                        <ul class="submenu" id="submenuAlumnos">
                             <li><a>Registrar reporte</a></li>
                             <li><a>Administrar reportes</a></li>
                         </ul>

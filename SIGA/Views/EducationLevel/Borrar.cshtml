@@ -1,0 +1,17 @@
+﻿@model EducationLevel
+@{
+    ViewData["Title"] = "Borrar nivel educativo";
+}
+
+<link rel="stylesheet" href="~/css/Forms.css" />
+<link rel="stylesheet" href="~/css/Buttons.css" />
+
+<div class="form-cont">
+    <h3>¿Está seguro que desea eliminar el nivel educativo @Model.Nombre?</h3>
+
+    <form asp-action="BorrarNivelEducativo">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn danger" id="Borrar">Borrar</button>
+        <button class="btn secondary"><a asp-action="Index">Cancelar</a></button>
+    </form>
+</div>

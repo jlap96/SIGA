@@ -5,19 +5,20 @@
     Layout = null;
 }
 <link rel="stylesheet" href="~/css/Custom.css" />
+<link rel="stylesheet" href="~/css//Alerts.css" />
+
 <form asp-action="Login" class="formLogin">
     <div>
         <h2>Bienvenido</h2>
         <h3>Iniciar sesión</h3>
         <img src="~/img/logo.png" alt="logo" id="logo" />
+        <div asp-validation-summary="All" class="errorAlert"></div>
         <div class="containerForm">
             <div>
-                <input asp-for="Email" placeholder="Usuario" />
-                <span asp-validation-for="Email"></span>
+                <input type="text" asp-for="Email" placeholder="Usuario" />
             </div>
             <div>
-                <input asp-for="Password" placeholder="Contraseña" />
-                <span asp-validation-for="Password"></span>
+                <input type="password" asp-for="Password" placeholder="Contraseña" />
             </div>
             <button type="submit">Iniciar sesión</button>
 
@@ -26,5 +27,7 @@
             </div>
         </div>
     </div>
+    <script src="~/js/Validation.js" asp-append-version="true"></script>
 </form>
+
     

@@ -1,0 +1,62 @@
+﻿body {
+}
+
+.btn {
+    border: none;
+    color: black;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 600;
+    transition: all 0.5s;
+}
+
+.primary {
+    background-color: #b1e7ff;
+    outline: 2px solid blue;
+}
+
+    .primary:hover {
+        background: #0b7dda;
+    }
+
+.secondary {
+    background-color: #e7e7e7;
+    color: black;
+    outline: 2px solid #1a19196e;
+}
+
+    .secondary:hover {
+        background: #1a19196e;
+    }
+
+.success {
+    outline: 2px solid #04AA6D;
+    background-color: #2dc12a3b;
+}
+
+    .success:hover {
+        background-color: #35a138d9;
+    }
+
+.warning {
+    background-color: #ff9800;
+}
+
+    .warning:hover {
+        background: #e68a00;
+    }
+
+.danger {
+    background-color: #f4433652;
+    outline: 2px solid #f44336;
+}
+
+    .danger:hover {
+        background: #da190b;
+    }
+
+#Borrar {
+    margin-right: 35%;
+    padding: 10px 20px;
+}

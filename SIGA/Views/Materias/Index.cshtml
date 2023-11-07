@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Materias>
+@{
+    ViewData["Title"] = "Materias";
+}
+
+<link rel="stylesheet" href="~/css/Forms.css" />
+<link rel="stylesheet" href="~/css/Alerts.css" />
+<link rel="stylesheet" href="~/css/Tables.css" />
+<link rel="stylesheet" href="~/css/Buttons.css" />
+
+<div class="table-container">
+    <h1>Materias</h1>
+    <button class="btn primary"><a asp-action="Crear">Crear nuevo</a></button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Estatus</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var materia in Model)
+            {
+                <tr>
+                    <td>
+                        @materia.Nombre
+                    </td>
+                    <td>
+                        @materia.Estatus
+                    </td>
+                    <td>
+                        <button class="btn primary"><a asp-action="Editar" asp-route-id="@materia.Id">Editar</a></button>
+                        <button class="btn danger" style="margin-left: 10px;"><a asp-action="Borrar" asp-route-id="@materia.Id">Borrar</a></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

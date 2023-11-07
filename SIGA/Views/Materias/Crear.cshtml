@@ -1,0 +1,30 @@
+﻿@model Materias
+
+@{
+    ViewData["Title"] = "Crear materia";
+}
+
+<link rel="stylesheet" href="~/css/Forms.css" />
+<link rel="stylesheet" href="~/css/Alerts.css" />
+<link rel="stylesheet" href="~/css/Buttons.css" />
+<div class="form-cont">
+    <h1>CREAR MATERIA</h1>
+    <div asp-validation-summary="All" class="errorAlert"></div>
+
+    <form asp-action="Crear" class="form">
+        <div class="field">
+            <label asp-for="Nombre"></label>
+            <input type="text" asp-for="Nombre" />
+        </div>
+
+        <div class="field">
+            <label asp-for="Estatus"></label>
+            <input type="text" asp-for="Estatus" />
+        </div>
+
+        <button class="btn secondary"><a asp-action="Index">Cancelar</a></button>
+        <button type="submit" class="btn success" onclick="location.href='@Url.Action("Index", "Materias")'">Guardar</button>
+
+    </form>
+    <script src="~/js/ValidationMateria.js" asp-append-version="true"></script>
+</div>

@@ -141,7 +141,9 @@ body {
 
 .menu-link:checked + .submenu, .subsubmenu{
     display: block;
-} 
+}
+
+
 /*ul li:hover> ul {
     display:block;
 }*/
@@ -165,5 +167,10 @@ body {
 .menu-link a:hover {
     color: #707176;
     font-weight: 600;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
 }
 

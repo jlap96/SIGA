@@ -5,7 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDistributedMemoryCache();
+builder.Services.AddTransient<IRepositoryEducationLevel, RepositoryEducationLevel>();
+builder.Services.AddTransient<IRepositorioGrupos, RepositorioGrupos>();
+builder.Services.AddTransient<IRepositorioMaterias, RepositorioMaterias>();
+builder.Services.AddTransient<IRepositoryUsers, RepositoryUsers>();
 /*builder.Services.AddRazorPages()
     .AddMvcOptions(options =>
     {
@@ -13,21 +16,15 @@ builder.Services.AddDistributedMemoryCache();
             _ => "Campo requerido");
     });
 */
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromSeconds(10);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(option =>
     {
         option.LoginPath = "/Users/Login";
-        option.SlidingExpiration = true;
-        option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(10);
         option.AccessDeniedPath = "/Home/Index";
     });
-builder.Services.AddTransient<IRepositoryUsers, RepositoryUsers>();
+
 
 var app = builder.Build();
 
@@ -46,7 +43,6 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

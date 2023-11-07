@@ -2,6 +2,7 @@
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Dapper;
 
 namespace SIGA.Services
 {
@@ -65,7 +66,7 @@ namespace SIGA.Services
             //Retornamos el objeto 
             return us;
         }
-        
+
     }
     
 }

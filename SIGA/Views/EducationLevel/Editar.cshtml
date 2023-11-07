@@ -1,17 +1,18 @@
 ﻿@model EducationLevel
-
 @{
-    ViewData["Title"] = "Crear Nivel educativo";
+    ViewData["Title"] = "Editar nivel educativo";
 }
 
 <link rel="stylesheet" href="~/css/Forms.css" />
 <link rel="stylesheet" href="~/css/Alerts.css" />
 <link rel="stylesheet" href="~/css/Buttons.css" />
 <div class="form-cont">
-    <h1>CREAR NIVEL EDUCATIVO</h1>
-    <div asp-validation-summary="All" class="errorAlert"></div>
+    <h1>EDITAR NIVEL EDUCATIVO @Model.Nombre</h1>
 
-    <form asp-action="Create" class="form">
+    <form asp-action="EditarNivelEducativo" class="form">
+        <div asp-validation-summary="All" class="errorAlert"></div>
+        <input type="hidden" asp-for="Id" />
+
         <div class="field">
             <label asp-for="Nombre"></label>
             <input type="text" asp-for="Nombre" />
@@ -33,4 +34,3 @@
     </form>
     <script src="~/js/ValidationEducationLevel.js" asp-append-version="true"></script>
 </div>
-
