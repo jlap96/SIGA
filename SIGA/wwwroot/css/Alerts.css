@@ -1,7 +1,62 @@
 ﻿body {
 }
 
-.errorAlert{
-    color: red;
+.alerts {
+    padding: 0px 30px 10px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorAlert {
+    color: #da3748;
     text-decoration: none;
+    background: #f8d7da;
+    border-right: 4px solid #da3748;
+    padding: 10px 10px;
+}
+
+.textError {
+    color: #da3748;
+}
+
+.successAlert {
+    background: #d4edda;
+    /*border-right: 4px solid #279e43;*/
+    color: #155724;
+    text-decoration: none;
+    width: 74%;
+    padding: 10px;
+    transition: all 0.8s;
+    position: fixed;
+    box-shadow: 0px 0px 5px #333;
+    border-radius: 1em;
+}
+
+.successAlert.show{
+    transform: translateY(15%);
+}
+
+.successAlert.hide{
+    transform: translateY(-150%);
+}
+
+
+#successAlert .material-symbols-outlined {
+    color: #279e43;
+    font-size: 25px;
+}
+
+.msg {
+    padding: 2px;
+    font-size: 20px;
+    position: fixed;
+    top: 10%;
+    color: #155724;
+    font-weight: 600;
+}
+
+.alerts p {
+    color: #155724;
+    font-size: 18px;
 }

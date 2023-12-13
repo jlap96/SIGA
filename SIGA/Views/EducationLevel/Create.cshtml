@@ -3,13 +3,9 @@
 @{
     ViewData["Title"] = "Crear Nivel educativo";
 }
-
-<link rel="stylesheet" href="~/css/Forms.css" />
-<link rel="stylesheet" href="~/css/Alerts.css" />
-<link rel="stylesheet" href="~/css/Buttons.css" />
 <div class="form-cont">
     <h1>CREAR NIVEL EDUCATIVO</h1>
-    <div asp-validation-summary="All" class="errorAlert"></div>
+    <div asp-validation-summary="All" class="textError"></div>
 
     <form asp-action="Create" class="form">
         <div class="field">
@@ -27,8 +23,15 @@
             <input type="text" asp-for="CostoColegiatura" />
         </div>
 
-        <button class="btn secondary"><a asp-action="Index">Cancelar</a></button>
-        <button type="submit" class="btn success" onclick="location.href='@Url.Action("Index", "EducationLevel")'">Guardar</button>
+        <button class="btn secondary" asp-action="Index">
+            
+               Cancelar
+            
+        </button>
+
+        <button type="submit" class="btn success" onclick="location.href='@Url.Action("Index", "EducationLevel")'">
+            Guardar
+        </button>
 
     </form>
     <script src="~/js/ValidationEducationLevel.js" asp-append-version="true"></script>

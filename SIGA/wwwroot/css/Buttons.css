@@ -4,11 +4,17 @@
 .btn {
     border: none;
     color: black;
-    padding: 10px 12px;
+    padding: 5px 6px;
     cursor: pointer;
     border-radius: 3px;
     font-weight: 600;
     transition: all 0.5s;
+}
+
+
+a {
+    text-decoration: none;
+    padding: 0px;
 }
 
 .primary {

@@ -7,12 +7,12 @@
 <link rel="stylesheet" href="~/css/Custom.css" />
 <link rel="stylesheet" href="~/css//Alerts.css" />
 
-<form asp-action="Login" class="formLogin">
+<form asp-action="Login" class="formLogin" id="inicio">
     <div>
         <h2>Bienvenido</h2>
         <h3>Iniciar sesión</h3>
         <img src="~/img/logo.png" alt="logo" id="logo" />
-        <div asp-validation-summary="All" class="errorAlert"></div>
+        <div asp-validation-summary="ModelOnly" class="errorAlert"></div>
         <div class="containerForm">
             <div>
                 <input type="text" asp-for="Email" placeholder="Usuario" />
@@ -27,7 +27,8 @@
             </div>
         </div>
     </div>
-    <script src="~/js/Validation.js" asp-append-version="true"></script>
+    <script type="module" src="~/js/Validation.js" asp-append-version="true"></script>
+    <script type="module" src="~/js/Alerts.js" asp-append-version="true"></script>
 </form>
 
     

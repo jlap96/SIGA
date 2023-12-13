@@ -4,7 +4,8 @@
 }
 
 body {
-    background-color: #d8e9f6;
+    /*background-color: #d8e9f6;*/
+    background-color: #e6e6e6;
 }
 .menu-content {
     display: flex;
@@ -12,7 +13,7 @@ body {
     background-color: #71B1D3;
     flex-direction: column;
     border-radius: 1em;
-    padding-block-end: 13%;
+    padding-block-end: 10%;
     font-weight: 600;
 }
 
@@ -60,10 +61,10 @@ body {
 .schoolName {
     background-color: var(--Primary-color);
     height: 45px;
-    border-radius: 3em;
+    border-radius: 1em;
     border: none;
     outline: 3px solid #4290c8;
-    width: 80%;
+    width: 95%;
     font-family: 'Palatino Linotype';
     align-items: center;
 }

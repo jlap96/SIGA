@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using SIGA.Models;
 
@@ -47,7 +48,7 @@ namespace SIGA.Services
         {
             using var connection = new MySqlConnection(connectionString);
             return await connection.QueryAsync<EducationLevel>(@"SELECT * 
-                                                                 FROM niveleducativo;");
+                                                                 FROM niveleducativo WHERE Eliminado = 0;");
         }
 
         public async Task<EducationLevel> ObtenerPorId(int id)
@@ -73,7 +74,8 @@ namespace SIGA.Services
         public async Task Borrar(int id)
         {
             var connection = new MySqlConnection(connectionString);
-            await connection.ExecuteAsync(@"DELETE FROM niveleducativo WHERE Id = @id;", new { id });
+            await connection.ExecuteAsync(@"UPDATE niveleducativo  SET  Eliminado = '1' WHERE Id = @id;", new { id });
+            
         }
 
 

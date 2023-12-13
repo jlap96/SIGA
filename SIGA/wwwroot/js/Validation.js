@@ -1,4 +1,6 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿import { Alertas } from "./Alerts.js";
+
+document.addEventListener('DOMContentLoaded', function () {
 
     //Select elements from the interface
     const inputUser = document.querySelector('#Email');
@@ -8,25 +10,31 @@
     inputUser.addEventListener('blur', validar);
     inputPassword.addEventListener('blur', validar);
 
+    const alert = new Alertas;
+
     function validar(e) {
         if (e.target.value.trim() === '') {
-            showAlert(`El campo ${e.target.id} es obligatorio`, e.target.parentElement); 
+            alert.mostrarAlerta(`El campo ${e.target.id} es obligatorio`, 'error', e.target.parentElement);
+            //showAlert(`El campo ${e.target.id} es obligatorio`, e.target.parentElement); 
             return;
         }
 
         if (e.target.id === 'Email' && !validationEmail(e.target.value)) {
-            showAlert('El email no es válido', e.target.parentElement);
+            alert.mostrarAlerta('El email no es válido', 'error', e.target.parentElement);
+            //showAlert('El email no es válido', e.target.parentElement);
             return
         }
 
         cleanAlert(e.target.parentElement);
     }
 
+    /*
+
     function showAlert(mensaje, referencia) {
         cleanAlert(referencia);
 
         //Add alert in HTML
-        const error = document.createElement('P');
+        const error = document.createElement('div');
         error.textContent = mensaje;
         error.classList.add('errorAlert');
 
@@ -41,7 +49,7 @@
             alert.remove();
         }
     }
-
+    */
     function validationEmail(email) {
         const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
         const resultado = regex.test(email)

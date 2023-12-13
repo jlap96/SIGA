@@ -17,6 +17,13 @@ namespace SIGA.Controllers
 
         public async Task<IActionResult> Index()
         {
+            string mensaje = TempData["sms"] as string;
+            ViewBag.sms = mensaje;
+            /*try
+            {
+                ViewBag.sms = TempData["sms"].ToString();
+            }
+            catch { }*/
             var educationLevel = await repositoryEducationLevel.Obtener();
             return View(educationLevel);
         }
@@ -29,20 +36,32 @@ namespace SIGA.Controllers
 
         public async Task <IActionResult> Create(EducationLevel educationLevel)
         {
-            if(!ModelState.IsValid)
+            try
             {
-                return View(educationLevel);
+                if (!ModelState.IsValid)
+                {
+                    return View(educationLevel);
+                }
+
+                var existe = await repositoryEducationLevel.Existe(educationLevel.Nombre);
+
+                if (existe)
+                {
+                    ModelState.AddModelError(nameof(educationLevel.Nombre),
+                        $"El nombre {educationLevel.Nombre} ya existe.");
+                    return View(educationLevel);
+                }
+                
+                await repositoryEducationLevel.Crear(educationLevel);
+                TempData["sms"] = "Se ha registrado correctamente el nivel educativo";
+                ViewBag.sms = "La acción se realizó correctamente";
+                return RedirectToAction("Index");
             }
-
-            var existe = await repositoryEducationLevel.Existe(educationLevel.Nombre);
-
-            if (existe)
+            catch
             {
-                ModelState.AddModelError(nameof(educationLevel.Nombre),
-                    $"El nombre {educationLevel.Nombre} ya existe.");
-                return View(educationLevel);
+                TempData["sms"] = "Error en el registro";
+                ViewBag.sms = TempData["sms"];
             }
-            await repositoryEducationLevel.Crear(educationLevel);
             return RedirectToAction("Index");
         }
 

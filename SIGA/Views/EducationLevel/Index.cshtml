@@ -7,11 +7,24 @@
 <link rel="stylesheet" href="~/css/Alerts.css" />
 <link rel="stylesheet" href="~/css/Tables.css" />
 <link rel="stylesheet" href="~/css/Buttons.css" />
+<div class="alerts">
+    @if (!string.IsNullOrEmpty(ViewBag.sms))
+    {
+        <div id="successAlert" class="successAlert hide">
+            <span class="material-symbols-outlined">
+                check_circle
+            </span>
+            <span class="msg">¡Correcto!</span>
+            <p>@ViewBag.sms</p>
+        </div>
+    }
+   
+</div>
 
 <div class="table-container">
-    <h1>Niveles educativos</h1>
-    <button class="btn primary"><a asp-action="Create">Crear nuevo</a></button>
-
+    <h1>NIVELES EDUCATIVOS</h1>
+    
+    <a asp-action="Create" class="btn primary" style="padding: 12px;">Crear nuevo</a>
     <table>
         <thead>
             <tr>
@@ -35,12 +48,20 @@
                         $@educationLevel.CostoColegiatura
                     </td>
                     <td>
-                        <button class="btn primary"><a asp-action="Editar" asp-route-id="@educationLevel.Id">Editar</a></button>
-                        <button class="btn danger" style="margin-left: 10px;"><a asp-action="Borrar" asp-route-id="@educationLevel.Id">Borrar</a></button>
+                        <a asp-action="Editar" asp-route-id="@educationLevel.Id" class="btn primary">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">
+                                edit
+                            </span>
+                        </a>
+                        <a asp-action="Borrar" asp-route-id="@educationLevel.Id" class="btn danger" style="margin-left: 10px;">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">
+                                delete
+                            </span>
+                        </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+    <script src="~/js/ShowAlerts.js" asp-append-version="true"></script>
 </div>
-
