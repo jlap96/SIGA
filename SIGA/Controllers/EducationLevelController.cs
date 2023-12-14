@@ -106,17 +106,33 @@ namespace SIGA.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> BorrarNivelEducativo(int id)
+        public async Task<JsonResult> BorrarNivelEducativo(int id)
         {
-            var educationLevel = await repositoryEducationLevel.ObtenerPorId(id);
-
-            if (educationLevel is null)
+            
+            try
             {
-                return RedirectToAction("NoEncontrado", "Home");
+                var educationLevel = await repositoryEducationLevel.ObtenerPorId(id);
+
+                await repositoryEducationLevel.Borrar(id);
+                if (educationLevel is null)
+                {
+                    return Json(new { success = true, status = 404, message = "Usuario no encontrado." });
+                    
+                }
+                else
+                {
+                    return Json(new { success = true, status = 200, message = "Datos eliminados exitosamente." });
+                }
             }
 
-            await repositoryEducationLevel.Borrar(id);
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+
+                
+                return Json(new { success = false, status = 500, message = "Error al eliminar datos: " + ex.Message });
+            }
+
+
         }
     }
 }

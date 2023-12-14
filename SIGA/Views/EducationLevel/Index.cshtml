@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="~/css/Alerts.css" />
 <link rel="stylesheet" href="~/css/Tables.css" />
 <link rel="stylesheet" href="~/css/Buttons.css" />
+<link rel="stylesheet" href="~/css/Modal.css" />
 <div class="alerts">
     @if (!string.IsNullOrEmpty(ViewBag.sms))
     {
@@ -17,9 +18,11 @@
             <span class="msg">¡Correcto!</span>
             <p>@ViewBag.sms</p>
         </div>
-    }
-   
+    }  
 </div>
+
+<div id="alert"></div>
+
 
 <div class="table-container">
     <h1>NIVELES EDUCATIVOS</h1>
@@ -53,7 +56,7 @@
                                 edit
                             </span>
                         </a>
-                        <a asp-action="Borrar" asp-route-id="@educationLevel.Id" class="btn danger" style="margin-left: 10px;">
+                        <a onclick="eliminar(@educationLevel.Id)" class="btn danger" style="margin-left: 10px;">
                             <span class="material-symbols-outlined" style="font-size: 20px;">
                                 delete
                             </span>
@@ -65,3 +68,49 @@
     </table>
     <script src="~/js/ShowAlerts.js" asp-append-version="true"></script>
 </div>
+
+<script >
+    
+    const eliminarRegistro = async (id) => {
+        var formData = new FormData();
+        formData.append('id', id);
+        console.log(id);
+        const requestOptions = {
+            method: 'POST',
+            body: formData
+        };
+        const api = await fetch('@Url.Action("BorrarNivelEducativo", "EducationLevel")', requestOptions)
+
+        const resultado = await api.json();
+        
+        if (resultado.status === 200){
+            window.location.reload();
+        }
+            
+    }
+
+    const cancelar = async (id) => {
+
+
+        document.getElementById('alert').innerHTML = '';
+
+    }
+
+    const eliminar = (id) => {
+        const alert = `
+            <div class="modalContainer">
+                <div class="modal">
+                    <h2>Eliminar nivel educativo</h2>
+                    <p>¿Está seguro de eliminar el nivel educativo</p>
+                    <div class="acciones">
+                        <button class="btn secondary" onclick="cancelar()">Cancelar</button>
+                                <button class="btn danger" onclick='eliminarRegistro(${id})'>Eliminar</button>
+                    </div>
+                </div>
+            </div>
+         `;
+        document.getElementById('alert').innerHTML = alert;
+        console.log('id', id);
+    }
+
+</script>
