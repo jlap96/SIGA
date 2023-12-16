@@ -19,6 +19,9 @@ namespace SIGA.Controllers
         {
             string mensaje = TempData["sms"] as string;
             ViewBag.sms = mensaje;
+
+            string mensajeEditar = TempData["smsEditar"] as string;
+            ViewBag.smsEditar = mensajeEditar;
             /*try
             {
                 ViewBag.sms = TempData["sms"].ToString();
@@ -54,7 +57,7 @@ namespace SIGA.Controllers
                 
                 await repositoryEducationLevel.Crear(educationLevel);
                 TempData["sms"] = "Se ha registrado correctamente el nivel educativo";
-                ViewBag.sms = "La acción se realizó correctamente";
+                ViewBag.sms = TempData["sms"];
                 return RedirectToAction("Index");
             }
             catch
@@ -79,16 +82,25 @@ namespace SIGA.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditarNivelEducativo(EducationLevel educationLevel)
+        public async Task<ActionResult>Editar(EducationLevel educationLevel)
+           
         {
+            if (!ModelState.IsValid)
+            {
+                return View(educationLevel);
+            }
+
             var nivelEducativoExiste = await repositoryEducationLevel.ObtenerPorId(educationLevel.Id);
 
-            if(nivelEducativoExiste is null)
+
+            if (nivelEducativoExiste is null)
             {
                 return RedirectToAction("NoEncontrado", "Home");
             }
 
             await repositoryEducationLevel.Actualizar(educationLevel);
+            TempData["smsEditar"] = "Se ha actualizado correctamente el nivel educativo";
+            ViewBag.smsEditar = TempData;
             return RedirectToAction("Index");
         }
 

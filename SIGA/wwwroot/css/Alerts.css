@@ -34,7 +34,7 @@
 }
 
 .successAlert.show{
-    transform: translateY(15%);
+    transform: translateY(60%);
 }
 
 .successAlert.hide{
@@ -68,15 +68,15 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(144,148,150,0.8);
+    /*background-color: rgba(144,148,150,0.8);*/
     justify-content: center;
     align-items: center;
     z-index: 100;
 }
 
 .eliminar {
-    background-color: #a9d1b2d9;
-    outline: 3px solid #878585;
+    background-color: white;
+    outline: 4px solid #2f9e48d9;
     font-family: 'Palatino Linotype';
     width: 100%;
     max-width: 400px;
@@ -89,9 +89,9 @@
     color: #155724;
     font-weight: 600;
     font-size: 22px;
-    background-color: white;
+    background-color: #a9d1b2d9;
     padding: 12px;
-    border-block-end: solid #878585;
+    border-block-end: solid #2f9e48d9;
     margin-top: 0;
     border-radius: 15px;
     border-end-end-radius: 0;

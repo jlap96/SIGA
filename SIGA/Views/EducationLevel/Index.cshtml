@@ -19,9 +19,33 @@
             <p>@ViewBag.sms</p>
         </div>
     }  
+    @if (!string.IsNullOrEmpty(ViewBag.smsEditar))
+    {
+        <div id="successAlert" class="successAlert hide">
+            <span class="material-symbols-outlined">
+                check_circle
+            </span>
+            <span class="msg">¡Correcto!</span>
+            <p>@ViewBag.smsEditar</p>
+        </div>
+    }
 </div>
 
 <div id="alert"></div>
+<div id="deleteAlert"></div>
+
+<!--ALERTA ELIMINACION EXITOSA-->
+<!--<div class="alertaEliminar">
+    <div class="eliminar">
+        <h2>¡Correcto!</h2>
+        <p>El nivel educativo se ha eliminado exitosamente</p>
+        <div class="acciones">
+            <button class="btn secondary">Aceptar</button>
+        </div>
+    </div>
+</div>-->
+
+
 
 
 <div class="table-container">
@@ -84,7 +108,23 @@
         const resultado = await api.json();
         
         if (resultado.status === 200){
-            window.location.reload();
+                const deleteAlert = `
+                    <div class="alertaEliminar">
+                        <div class="eliminar">
+                            <h2>¡Correcto!</h2>
+                            <p>El nivel educativo se ha eliminado exitosamente</p>
+                            <div class="acciones">
+                                   <button class="btn secondary" onclick="window.location.reload()">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('deleteAlert').innerHTML = deleteAlert
+                /*setTimeout(function(){
+                    window.location.reload();
+                }, 2000);*/
+            //window.location.reload();
         }
             
     }
@@ -104,7 +144,7 @@
                     <p>¿Está seguro de eliminar el nivel educativo</p>
                     <div class="acciones">
                         <button class="btn secondary" onclick="cancelar()">Cancelar</button>
-                                <button class="btn danger" onclick='eliminarRegistro(${id})'>Eliminar</button>
+                        <button class="btn danger" onclick='eliminarRegistro(${id})'>Eliminar</button>
                     </div>
                 </div>
             </div>

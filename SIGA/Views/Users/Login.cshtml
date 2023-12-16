@@ -12,8 +12,8 @@
         <h2>Bienvenido</h2>
         <h3>Iniciar sesión</h3>
         <img src="~/img/logo.png" alt="logo" id="logo" />
-        <div asp-validation-summary="ModelOnly" class="errorAlert"></div>
         <div class="containerForm">
+            <div asp-validation-summary="All" class="textError"></div>
             <div>
                 <input type="text" asp-for="Email" placeholder="Usuario" />
             </div>
