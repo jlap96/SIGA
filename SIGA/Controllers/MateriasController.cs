@@ -17,6 +17,12 @@ namespace SIGA.Controllers
 
         public async Task<IActionResult> Index()
         {
+            string mensaje = TempData["sms"] as string;
+            ViewBag.sms = mensaje;
+
+            string mensajeEditar = TempData["smsEditar"] as string;
+            ViewBag.smsEditar = mensajeEditar;
+
             var materias = await repositorioMaterias.Obtener();
             return View(materias);
         }
@@ -28,21 +34,25 @@ namespace SIGA.Controllers
         [HttpPost]
         public async Task <IActionResult> Crear(Materias materias)
         {
-            if(!ModelState.IsValid)
+            try
             {
-                return View(materias);
-            }
-            var existe = await repositorioMaterias.Existe(materias.Nombre);
+                if (!ModelState.IsValid)
+                {
+                    return View(materias);
+                }
 
-            if(existe)
+                await repositorioMaterias.Crear(materias);
+                TempData["sms"] = "Se ha registrado correctamente la materia";
+                ViewBag.sms = TempData["sms"];
+                return RedirectToAction("Index");
+            }
+            catch
             {
-                ModelState.AddModelError(nameof(materias.Nombre),
-                    $"El nombre {materias.Nombre} ya existe");
-                return View(materias);
+                TempData["sms"] = "Error en el registro";
+                ViewBag.sms = TempData["sms"];
             }
+            return RedirectToAction("Index");
 
-            await repositorioMaterias.Crear(materias);
-            return View();
         }
 
         [HttpGet]
@@ -61,6 +71,10 @@ namespace SIGA.Controllers
         [HttpPost]
         public async Task<ActionResult> Editar(Materias materias)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(materias);
+            }
             var materiaExiste = await repositorioMaterias.ObtenerPorId(materias.Id);
 
             if (materiaExiste is null)
@@ -69,6 +83,8 @@ namespace SIGA.Controllers
             }
 
             await repositorioMaterias.Actualizar(materias);
+            TempData["smsEditar"] = "Se ha actualizado correctamente la materia";
+            ViewBag.smsEditar = TempData;
             return RedirectToAction("Index");
         }
 
@@ -88,15 +104,28 @@ namespace SIGA.Controllers
 
         public async Task<IActionResult> BorrarMateria(int id)
         {
-            var materia = await repositorioMaterias.ObtenerPorId(id);
-
-            if (materia is null)
+            try
             {
-                return RedirectToAction("NoEncontrado", "Home");
+                var materia = await repositorioMaterias.ObtenerPorId(id);
+
+                await repositorioMaterias.Borrar(id);
+                if (materia is null)
+                {
+                    return Json(new { success = true, status = 404, message = "Registro no encontrado." });
+
+                }
+                else
+                {
+                    return Json(new { success = true, status = 200, message = "Datos eliminados exitosamente." });
+                }
             }
 
-            await repositorioMaterias.Borrar(id);
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+
+
+                return Json(new { success = false, status = 500, message = "Error al eliminar datos: " + ex.Message });
+            }
         }
     }
 }

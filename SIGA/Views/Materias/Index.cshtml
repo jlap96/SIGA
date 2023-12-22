@@ -2,21 +2,40 @@
 @{
     ViewData["Title"] = "Materias";
 }
+<div class="alerts">
+    @if (!string.IsNullOrEmpty(ViewBag.sms))
+    {
+        <div id="successAlert" class="successAlert hide">
+            <span class="material-symbols-outlined">
+                check_circle
+            </span>
+            <span class="msg">¡Correcto!</span>
+            <p>@ViewBag.sms</p>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.smsEditar))
+    {
+        <div id="successAlert" class="successAlert hide">
+            <span class="material-symbols-outlined">
+                check_circle
+            </span>
+            <span class="msg">¡Correcto!</span>
+            <p>@ViewBag.smsEditar</p>
+        </div>
+    }
+</div>
 
-<link rel="stylesheet" href="~/css/Forms.css" />
-<link rel="stylesheet" href="~/css/Alerts.css" />
-<link rel="stylesheet" href="~/css/Tables.css" />
-<link rel="stylesheet" href="~/css/Buttons.css" />
+<div id="alert"></div>
+<div id="deleteAlert"></div>
 
 <div class="table-container">
     <h1>Materias</h1>
-    <button class="btn primary"><a asp-action="Crear">Crear nuevo</a></button>
+    <a asp-action="Crear" class="btn primary" style="padding: 12px;">Crear nuevo</a>
 
     <table>
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Estatus</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -28,14 +47,23 @@
                         @materia.Nombre
                     </td>
                     <td>
-                        @materia.Estatus
-                    </td>
-                    <td>
-                        <button class="btn primary"><a asp-action="Editar" asp-route-id="@materia.Id">Editar</a></button>
-                        <button class="btn danger" style="margin-left: 10px;"><a asp-action="Borrar" asp-route-id="@materia.Id">Borrar</a></button>
+                        <a asp-action="Editar" asp-route-id="@materia.Id" class="btn primary">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">
+                                edit
+                            </span>
+                        </a>
+                        <a onclick="eliminar(@materia.Id)" class="btn danger" style="margin-left: 10px;">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">
+                                delete
+                            </span>
+                        </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+    <script src="~/js/ShowAlerts.js" asp-append-version="true"></script>
+    <script>var url = '@Url.Action("BorrarMateria", "Materias")';</script>
 </div>
+
+<script src="~/js/VistaMaterias/EliminacionMaterias.js"></script>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="~/css/Buttons.css" />
 <div class="form-cont">
     <h1>CREAR MATERIA</h1>
-    <div asp-validation-summary="All" class="errorAlert"></div>
+    <div asp-validation-summary="All" class="textError"></div>
 
     <form asp-action="Crear" class="form">
         <div class="field">
@@ -17,14 +17,11 @@
             <input type="text" asp-for="Nombre" />
         </div>
 
-        <div class="field">
-            <label asp-for="Estatus"></label>
-            <input type="text" asp-for="Estatus" />
-        </div>
-
-        <button class="btn secondary"><a asp-action="Index">Cancelar</a></button>
+        <button class="btn secondary" asp-action="Index">
+            Cancelar
+        </button>
         <button type="submit" class="btn success" onclick="location.href='@Url.Action("Index", "Materias")'">Guardar</button>
 
     </form>
-    <script src="~/js/ValidationMateria.js" asp-append-version="true"></script>
+    <script src="~/js/VistaMaterias/ValidationMateria.js" asp-append-version="true"></script>
 </div>

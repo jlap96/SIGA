@@ -45,16 +45,16 @@ namespace SIGA.Controllers
                 {
                     return View(educationLevel);
                 }
-
+                /*
                 var existe = await repositoryEducationLevel.Existe(educationLevel.Nombre);
-
+                
                 if (existe)
                 {
                     ModelState.AddModelError(nameof(educationLevel.Nombre),
                         $"El nombre {educationLevel.Nombre} ya existe.");
                     return View(educationLevel);
                 }
-                
+                */
                 await repositoryEducationLevel.Crear(educationLevel);
                 TempData["sms"] = "Se ha registrado correctamente el nivel educativo";
                 ViewBag.sms = TempData["sms"];
@@ -128,7 +128,7 @@ namespace SIGA.Controllers
                 await repositoryEducationLevel.Borrar(id);
                 if (educationLevel is null)
                 {
-                    return Json(new { success = true, status = 404, message = "Usuario no encontrado." });
+                    return Json(new { success = true, status = 404, message = "Registro no encontrado." });
                     
                 }
                 else

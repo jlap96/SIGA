@@ -10,7 +10,6 @@ namespace SIGA.Services
         Task Actualizar(EducationLevel educationLevel);
         Task Borrar(int id);
         Task Crear(EducationLevel educationLevel);
-        Task<bool> Existe(string nombre);
         Task<IEnumerable<EducationLevel>> Obtener();
         Task<EducationLevel> ObtenerPorId(int id);
     }
@@ -32,7 +31,7 @@ namespace SIGA.Services
 
             educationLevel.Id = id;
         }
-
+/*
         public async Task<bool> Existe(string nombre)
         {
             using var connection = new MySqlConnection(connectionString);
@@ -43,12 +42,12 @@ namespace SIGA.Services
                                             new { nombre });
             return existe == 1;
         }
-
+*/
         public async Task<IEnumerable<EducationLevel>> Obtener()
         {
             using var connection = new MySqlConnection(connectionString);
             return await connection.QueryAsync<EducationLevel>(@"SELECT * 
-                                                                 FROM niveleducativo WHERE Eliminado = 0;");
+                                                                 FROM niveleducativo WHERE Estatus = 0;");
         }
 
         public async Task<EducationLevel> ObtenerPorId(int id)
@@ -74,7 +73,7 @@ namespace SIGA.Services
         public async Task Borrar(int id)
         {
             var connection = new MySqlConnection(connectionString);
-            await connection.ExecuteAsync(@"UPDATE niveleducativo  SET  Eliminado = '1' WHERE Id = @id;", new { id });
+            await connection.ExecuteAsync(@"UPDATE niveleducativo  SET  Estatus = '1' WHERE Id = @id;", new { id });
             
         }
 

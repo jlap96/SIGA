@@ -2,11 +2,9 @@
 
     //Select elements from the interface
     const inputNombre = document.querySelector('#Nombre');
-    const inputEstatus = document.querySelector('#Estatus');
 
     //Add events
     inputNombre.addEventListener('blur', validar);
-    inputEstatus.addEventListener('blur', validar);
 
 
     function validar(e) {

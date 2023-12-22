@@ -10,7 +10,6 @@ namespace SIGA.Services
         Task Actualizar(Materias materias);
         Task Borrar(int id);
         Task Crear(Materias materias);
-        Task<bool> Existe(string nombre);
         Task<IEnumerable<Materias>> Obtener();
         Task<Materias> ObtenerPorId(int id);
     }
@@ -26,27 +25,16 @@ namespace SIGA.Services
         public async Task Crear(Materias materias)
         {
             using var connection = new MySqlConnection(connectionString);
-            var id = await connection.QuerySingleAsync<int>(@"INSERT INTO materias (Id, Nombre, Estatus) 
-                                                   VALUES (@Id, @Nombre, @Estatus);
+            var id = await connection.QuerySingleAsync<int>(@"INSERT INTO materias (Id, Nombre) 
+                                                   VALUES (@Id, @Nombre);
                                                    SELECT LAST_INSERT_ID();", materias);
             materias.Id = id;
-        }
-
-        public async Task<bool> Existe(string nombre)
-        {
-            using var connection = new MySqlConnection(connectionString);
-            var existe = await connection.QueryFirstOrDefaultAsync<int>(
-                                            @"SELECT 1
-                                            FROM materias
-                                            WHERE Nombre = @nombre;",
-                                            new { nombre });
-            return existe == 1;
         }
 
         public async Task<IEnumerable<Materias>> Obtener()
         {
             using var connection = new MySqlConnection(connectionString);
-            return await connection.QueryAsync<Materias>(@"SELECT Id, Nombre, Estatus FROM materias");
+            return await connection.QueryAsync<Materias>(@"SELECT * FROM materias");
         }
 
         public async Task<Materias> ObtenerPorId(int id)
@@ -57,14 +45,12 @@ namespace SIGA.Services
                                                                      FROM materias
                                                                      WHERE Id = @Id",
                                                                      new { id });
-
         }
-
         public async Task Actualizar(Materias materias)
         {
             using var connection = new MySqlConnection(connectionString);
             await connection.ExecuteAsync(@"UPDATE materias
-                                            SET Nombre = @Nombre, Estatus = @Estatus
+                                            SET Nombre = @Nombre
                                             WHERE Id = @id;", materias);
         }
 
